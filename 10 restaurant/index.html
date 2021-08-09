@@ -31,8 +31,8 @@
         <!-- 2인 테이블(사각형) -->
         <div class="rec-table table-1">
           <div class="chairs">
-            <div class="chair-item on"></div>
-            <div class="chair-item on"></div>
+            <div class="chair-item"></div>
+            <div class="chair-item"></div>
           </div>
         </div>
         <div class="rec-table table-2">
@@ -50,9 +50,9 @@
         <!-- 4인 테이블(원형) -->
         <div class="circle-table table-1">
           <div class="chairs">
-            <div class="chair-item on"></div>
-            <div class="chair-item on"></div>
-            <div class="chair-item on"></div>
+            <div class="chair-item"></div>
+            <div class="chair-item"></div>
+            <div class="chair-item"></div>
             <div class="chair-item"></div>
           </div>
         </div>
@@ -93,11 +93,12 @@
         <h3 class="sr-only">레스토랑 예약 시스템</h3>
         <div class="reservation-count">
           <!-- 식사 인원 입력 form -->
-          <form action="">
+          <form>
             <label for="">식사 인원</label>
-            <input type="number" placeholder="숫자 입력" />
-            <button type="submit">예약</button>
+            <input type="number" placeholder="숫자 입력" id="식사인원" />
+            <button type="button" id="예약버튼">예약</button>
           </form>
+          <p id="경고문구"></p>
         </div>
         <!-- restaurant guest -->
         <div class="quests">
@@ -106,13 +107,13 @@
           <table class="reservation-table">
             <thead>
               <tr>
-                <th>예약 번호</th>
-                <th>인원</th>
-                <th>현재 상태</th>
+                <th onclick="sort('예약번호')">예약 번호</th>
+                <th onclick="sort('예약인원')">인원</th>
+                <th onclick="sort('현재상태')">현재 상태</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>1</td>
                 <td>3</td>
                 <td>식사 중</td>
@@ -141,12 +142,12 @@
                 <td>6</td>
                 <td>2</td>
                 <td class="waiting">대기 중</td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
         <!-- 영업 개시 버튼 -->
-        <button type="button" class="start-btn">영업 개시</button>
+        <button type="button" class="start-btn" id="영업개시">영업 개시</button>
       </section>
     </div>
     <script src="src/js/index.js"></script>
