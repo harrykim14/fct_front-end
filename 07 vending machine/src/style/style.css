@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+/* 유틸리티 스타일 */
+
+.ir {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 1px;
+  color: transparent;
+}
+
+.img-item {
+  display: block;
+}
+
+/* 레이아웃 스타일 */
+body {
+  background-color: #eae8fe;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* stretch로 적용하게 된다면 부모만큼 커지기 때문에 flex-start를 사용 */
+  gap: 0 28px;
+  padding-top: 247px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app .vending-machine,
+#app .my-info {
+  width: 360px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* 타이틀 스타일링 */
+#app .tit-app {
+  width: 100%;
+  max-width: 386px;
+  height: 180px;
+  background: no-repeat center / 100% 100% url(../images/Logo_img.png);
+  top: 0;
+}
+
+/* 자판기 아이템 리스트 스타일링 */
+.vending-machine {
+  padding: 31px 27px 28px;
+}
+
+.vending-machine .list-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.vending-machine .list-item li {
+  position: relative; /* 만약 가상요소를 사용한다면 그 전에 position: relative값을 설정해놓는 것이 좋다 */
+  width: 30%;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .list-item li:active::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 3px solid #6327fe;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.vending-machine .list-item li.sold-out::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  background: no-repeat center / 58px 45px url(../images/Sold-out.png)
+    rgba(0, 0, 0, 0.8);
+}
+
+.vending-machine .list-item li.sold-out {
+  pointer-events: none;
+}
+
+/* 3번째 요소(index값이므로 3~5)부터 나머지 요소를 선택*/
+.vending-machine .list-item li:nth-child(3) ~ li {
+  margin-top: 12px;
+}
+
+.vending-machine .btn-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.vending-machine .list-item img {
+  width: 36px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.vending-machine .tit-item {
+  display: block;
+  font-size: 9px;
+  margin: 6px 0 7px;
+}
+
+.vending-machine .txt-price {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 16px;
+  border-radius: 50px;
+  background-color: #6327f2;
+  color: #fff;
+}
+
+/* 잔액반환, 입금 등 스타일링 */
+
+.vending-machine .cont-return,
+.vending-machine .cont-put,
+.vending-machine .cont-get {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.cont-return .info-balance,
+.cont-put .inp-put,
+.cont-get .list-item-staged {
+  width: 65%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.cont-return .btn-return,
+.cont-put .btn-put,
+.cont-get .btn-get {
+  width: 30%;
+  font-size: 13px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .cont-return {
+  margin-top: 20px;
+}
+
+.cont-return .info-balance {
+  overflow: hidden;
+  padding: 6px 10px;
+  font-size: 14px;
+  background-color: #eae8fe;
+}
+
+.info-balance .txt-balance {
+  float: right;
+}
+
+.cont-put .inp-put {
+  padding: 6px 6px 7px;
+  border: 1px solid #bdbdbd;
+}
+
+.cont-get .btn-get {
+  font-weight: 700;
+  color: #fff;
+  background-color: #6327fe;
+}
+
+.cont-get .list-item-staged {
+  height: 106px;
+  overflow-y: scroll;
+  padding: 12px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  background-color: #eae8fe;
+}
+
+.list-item-staged li {
+  overflow: hidden;
+  padding: 6px 8px 7px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.list-item-staged li + li {
+  margin-top: 6px;
+}
+
+.list-item-staged .img-item,
+.list-item-staged .txt-item {
+  float: left;
+}
+
+.list-item-staged .img-item {
+  width: 18px;
+  height: 33px;
+}
+
+.list-item-staged .txt-item {
+  margin-left: 10px;
+  font-size: 9px;
+  line-height: 33px;
+}
+
+.list-item-staged .num-counter {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+
+/* 나의 정보 스타일링 */
+#app .my-info {
+  background-color: #eae8fe;
+}
+
+.my-info .cont-mymoney {
+  padding: 9px 27px;
+  background-color: #fff;
+}
+
+.cont-mymoney .info-mymoney {
+  padding: 6px 10px;
+  background-color: #eae8fe;
+}
+
+.info-mymoney .txt-mymoney {
+  float: right;
+  font-weight: 700;
+}
+
+/* 획득한 음료 */
+.my-info .cont-myitems {
+  margin-top: 20px;
+  padding: 25px 27px 26px;
+  background-color: #fff;
+}
+
+.cont-myitems .tit-myitem {
+  display: block;
+  margin-bottom: 13px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.cont-myitems .list-item-staged {
+  overflow-y: scroll;
+  height: 364px;
+  padding: 12px;
+  background-color: #eae8fe;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.cont-myitems .txt-total {
+  display: block;
+  text-align: right;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) /* 기기 화면의 최소 1px 당 2개의 화소가 있어야 함 */ {
+  body {
+    background-color: #fff;
+  }
+
+  #app {
+    padding-top: 65px;
+  }
+
+  #app .tit-app {
+    width: 166px;
+    height: 71px;
+  }
+
+  .my-info .cont-myitems {
+    margin-top: 0px;
+  }
+}

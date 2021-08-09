@@ -1,0 +1,143 @@
+#app {
+  overflow: scroll;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.movie-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 672px;
+  margin: 0 auto;
+}
+
+.movie {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 64px;
+}
+
+.poster-container {
+  position: absolute;
+  left: -64px;
+  width: 281px;
+  height: 396px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.content {
+  width: 608px;
+  height: 500px;
+  box-sizing: border-box;
+  color: #ffffff;
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 64px 0 0 266px;
+}
+
+.content-type span {
+  color: #bdbdbd;
+}
+
+.content-type span + span::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin: 0 7px -1px 3px;
+  background: #bdbdbd;
+}
+
+.content-title {
+  margin: 13px 0 114px 0;
+  font-size: 32px;
+  line-height: 46px;
+  font-weight: 700;
+}
+
+.content-favorite {
+  display: flex;
+  margin-bottom: 22px;
+}
+
+.content-favorite button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.btn-recommend,
+.btn-heart,
+.icon-remove-star {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-recommend .icon-thumbs-up {
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 29px;
+  height: 29px;
+  background: center / contain url("../image/icon_thumbs_up.png") no-repeat;
+}
+
+.btn-recommend.on {
+  background-color: #2f80ed;
+}
+
+.btn-recommend.on .icon-thumbs-up {
+  background-image: url("../image/icon_thumbs_up_fill.png");
+}
+
+.btn-heart .icon-heart {
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 29px;
+  height: 29px;
+  background: center / contain url("../image/icon_heart.png") no-repeat;
+}
+.btn-heart.on {
+  background-color: #eb5757;
+}
+
+.btn-heart.on .icon-heart {
+  background-image: url("../image/icon_heart_fill.png");
+}
+
+.star-average {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.star-point-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-background {
+  display: flex;
+}
+
+.star-background img {
+  width: 51px;
+  height: 51px;
+}
+
+.icon-remove-star {
+  width: 22px;
+  height: 22px;
+  margin-left: 11px;
+  border: none;
+  padding: 0 0;
+}
